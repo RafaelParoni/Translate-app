@@ -1,0 +1,77 @@
+h1{
+    color: #fff;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    background-color: #0c6cb5;
+    font-size: 15px;
+    color: black;
+    padding: 5px;
+    border: #0c6cb5 solid 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+button:hover{
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+.InputsDiv {
+    margin-top: 25px;
+    display: flex;
+    height: auto;
+    gap: 15px;
+    align-items: baseline;
+}
+.inputTranslate{
+    background-color: #0c6cb5;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    row-gap: 5px;
+}
+.InputLing{
+    width: 100%;
+    text-align: right;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+}
+.InputLing span:last-child{
+    text-align: center;
+    width: 100%;
+}
+.inputTranslate span:first-child{
+    padding-inline: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.inputTranslate span:first-child:hover{
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+.inputTranslate textarea{
+    height: auto;
+    background-color: #043f6d;
+    padding-bottom: 25px;
+    resize: none;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 5px;
+
+}
+.inputTranslate textarea:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
