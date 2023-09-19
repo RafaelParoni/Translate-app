@@ -1,7 +1,7 @@
 import './Components.css';
 import axios from 'axios'
 import { useEffect, useRef, useState } from 'react';
-import {PiArrowsLeftRightBold, PiArrowClockwiseBold} from 'react-icons/pi'
+import {PiArrowsLeftRightBold, PiArrowClockwiseBold, PiCopyBold } from 'react-icons/pi'
 import {LuAlertTriangle} from 'react-icons/lu'
 import {GrClose} from 'react-icons/gr'
 
@@ -28,11 +28,15 @@ import {GrClose} from 'react-icons/gr'
         document.getElementById('translateLingResult').style.height = 'auto'
         document.getElementById('translateLingResult').innerHTML = ''
     }
+    function CopyTranslate(){
+        var Value = document.getElementById('translateLingResult').value
+        navigator.clipboard.writeText(Value)
+    }
     return (
         <div className='InputsDiv'>
             <div className='inputTranslate'>
                 <div className='InputLing'><spam id='TranslateLingDetect'>Auto detector</spam></div>
-                <a className='ResetButton'><button onClick={()=> ResetTranslate()}> <GrClose color='fff'/> </button></a>
+                <a className='ResetButton'><button onClick={()=> ResetTranslate()}> <GrClose color='000'/> </button></a>
                 <a><textarea id='translateLingInput' autoCorrect='on' autoComplete='on' type='text' wrap="hard" className='p-1 bg-neutral-700 active:outline-none focus:outline-none rounded' value={val}  onChange={handleChange} rows="2" ref={textAreaRef}/></a>
             </div>  
             <a id='TranslateLoadOff'><PiArrowsLeftRightBold color='fff'/></a>
@@ -55,7 +59,8 @@ import {GrClose} from 'react-icons/gr'
                         <option value={`pl`}>Polonês</option>
                     </select>
                 </form>
-                <a><textarea id='translateLingResult' readOnly type='text' wrap="hard" style={{width: '95%'}}  rows="2" /></a>
+                <a className='CopyButtom'><button onClick={()=> CopyTranslate()}> <PiCopyBold color='000'/> </button></a>
+                <a><textarea id='translateLingResult' readOnly type='text' wrap="hard"   rows="2" /></a>
             </div>     
         </div>
     );
