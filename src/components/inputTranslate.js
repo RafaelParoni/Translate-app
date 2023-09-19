@@ -2,6 +2,7 @@ import './Components.css';
 import axios from 'axios'
 import { useEffect, useRef, useState } from 'react';
 import {PiArrowsLeftRightBold, PiArrowClockwiseBold} from 'react-icons/pi'
+import {LuAlertTriangle} from 'react-icons/lu'
 import {GrClose} from 'react-icons/gr'
 
  function Title(){
@@ -30,11 +31,13 @@ import {GrClose} from 'react-icons/gr'
     return (
         <div className='InputsDiv'>
             <div className='inputTranslate'>
-                <div className='InputLing'><spam id='TranslateLingDetect'>Port</spam></div>
+                <div className='InputLing'><spam id='TranslateLingDetect'>Auto detector</spam></div>
                 <a className='ResetButton'><button onClick={()=> ResetTranslate()}> <GrClose color='fff'/> </button></a>
                 <a><textarea id='translateLingInput' autoCorrect='on' autoComplete='on' type='text' wrap="hard" className='p-1 bg-neutral-700 active:outline-none focus:outline-none rounded' value={val}  onChange={handleChange} rows="2" ref={textAreaRef}/></a>
             </div>  
-            <a id='TranslateLoadOff'><PiArrowsLeftRightBold color='fff'/></a> <a id='TranslateLoadOn'><PiArrowClockwiseBold color='fff'/></a>
+            <a id='TranslateLoadOff'><PiArrowsLeftRightBold color='fff'/></a>
+            <a id='TranslateLoadOn'><PiArrowClockwiseBold color='fff'/></a>
+            <a id='TranslateLoadError'><LuAlertTriangle/></a>
             <div className='inputTranslate select'>
                 <input type='hidden' id='TranslateLingOnly' value={'us'} />
                 <form>

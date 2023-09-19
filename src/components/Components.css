@@ -142,6 +142,47 @@ h1{
         transform: rotateZ(360deg);
     }
 }
+/* Alert Error Code */
+.ErrorAlert {
+    display: none;
+    background-color: #e41010;
+    width: auto;
+    height: auto;
+    padding: 15px;
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+}
+.ErrorAlert span{
+    background-color: transparent;
+    resize: none;
+    border: none;
+    color: #000;
+    width: 100%;
+}
+#TranslateLoadError{
+    display: none;
+    animation-name: error;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    border-radius: 5px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+@keyframes error {
+    0% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: #e41010;
+        color: #000;
+    }
+    100% {
+        background-color: transparent;
+    }
+    
+}
 @media (max-width: 700px){
     .InputsDiv{
         flex-direction: column;

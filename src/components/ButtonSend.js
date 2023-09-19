@@ -7,6 +7,8 @@ function ButtonSend(){
     async function traduzir(){
       var IndictorTranslateON = document.getElementById('TranslateLoadOn')
       var IndictorTranslateOFF = document.getElementById('TranslateLoadOff')
+      var IndictorTranslateError = document.getElementById('TranslateLoadError')
+      var ErrorDiv = document.getElementById('ErrorDivAlert')
       var TextEnter = document.getElementById('translateLingInput')
       var TextResult = document.getElementById('translateLingResult')
       var TranslateOnly = document.getElementById('TranslateLingOnly')
@@ -15,6 +17,8 @@ function ButtonSend(){
       // ------------------------------------------------ // 
       IndictorTranslateON.style.display = 'flex'
       IndictorTranslateOFF.style.display = 'none'
+      IndictorTranslateError.style.display = 'none'
+      ErrorDiv.style.display = 'none'
       const options = {
         method: 'POST',
         url: 'https://microsoft-translator-text.p.rapidapi.com/translate',
@@ -70,10 +74,15 @@ function ButtonSend(){
 
         IndictorTranslateON.style.display = 'none'
         IndictorTranslateOFF.style.display = 'flex'
+        IndictorTranslateError.style.display = 'none'
+        ErrorDiv.style.display = 'none'
       } catch (error) {
         console.error(error);
+        document.getElementById('ErrorSpanAlert').innerHTML =`Error: ${error}`
         IndictorTranslateON.style.display = 'none'
-        IndictorTranslateOFF.style.display = 'flex'
+        IndictorTranslateOFF.style.display = 'none'
+        IndictorTranslateError.style.display = 'flex'
+        ErrorDiv.style.display = 'flex'
       }
     }
 
