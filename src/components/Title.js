@@ -1,10 +1,11 @@
 import './Components.css';
+import {PiTranslate} from 'react-icons/pi'
 
 function Title(){
 
     return (
         <h1>
-            Translate App
+           <PiTranslate/> -Translate App. 
         </h1>
     );
 }
