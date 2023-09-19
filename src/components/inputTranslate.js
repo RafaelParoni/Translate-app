@@ -1,11 +1,10 @@
 import './Components.css';
 import axios from 'axios'
 import { useEffect, useRef, useState } from 'react';
-import {PiArrowsLeftRightBold, PiCaretDownBold} from 'react-icons/pi'
+import {PiArrowsLeftRightBold, PiArrowClockwiseBold} from 'react-icons/pi'
 import {GrClose} from 'react-icons/gr'
 
  function Title(){
-    
 
     const textAreaRef = useRef(null);
     const [val, setVal] = useState("");
@@ -13,10 +12,12 @@ import {GrClose} from 'react-icons/gr'
         setVal(e.target.value);
     }
     
+    
     useEffect(() => {
         textAreaRef.current.style.height = "auto";
         textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
     }, [val])
+
 
     function ResetTranslate(){
         document.getElementById('translateLingInput').value = ''
@@ -31,9 +32,9 @@ import {GrClose} from 'react-icons/gr'
             <div className='inputTranslate'>
                 <div className='InputLing'><spam id='TranslateLingDetect'>Port</spam></div>
                 <a className='ResetButton'><button onClick={()=> ResetTranslate()}> <GrClose color='fff'/> </button></a>
-                <a><textarea id='translateLingInput' autoCorrect='on' autoComplete='on' type='text' wrap="hard" className='p-1 bg-neutral-700 active:outline-none focus:outline-none rounded' value={val} onChange={handleChange} rows="2" ref={textAreaRef}/></a>
+                <a><textarea id='translateLingInput' autoCorrect='on' autoComplete='on' type='text' wrap="hard" className='p-1 bg-neutral-700 active:outline-none focus:outline-none rounded' value={val}  onChange={handleChange} rows="2" ref={textAreaRef}/></a>
             </div>  
-            <a><PiArrowsLeftRightBold color='fff'/></a>
+            <a id='TranslateLoadOff'><PiArrowsLeftRightBold color='fff'/></a> <a id='TranslateLoadOn'><PiArrowClockwiseBold color='fff'/></a>
             <div className='inputTranslate select'>
                 <input type='hidden' id='TranslateLingOnly' value={'us'} />
                 <form>

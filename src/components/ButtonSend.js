@@ -5,12 +5,16 @@ import axios from 'axios'
 function ButtonSend(){
 
     async function traduzir(){
+      var IndictorTranslateON = document.getElementById('TranslateLoadOn')
+      var IndictorTranslateOFF = document.getElementById('TranslateLoadOff')
       var TextEnter = document.getElementById('translateLingInput')
       var TextResult = document.getElementById('translateLingResult')
       var TranslateOnly = document.getElementById('TranslateLingOnly')
       var DetecLing = document.getElementById('TranslateLingDetect')
       var SelectLing = document.getElementById('lings')
       // ------------------------------------------------ // 
+      IndictorTranslateON.style.display = 'flex'
+      IndictorTranslateOFF.style.display = 'none'
       const options = {
         method: 'POST',
         url: 'https://microsoft-translator-text.p.rapidapi.com/translate',
@@ -63,8 +67,13 @@ function ButtonSend(){
         TextResult.style.height = TextEnter.style.height
         TextResult.value = `${response.data[0].translations[0].text}`
         TextResult.innerHTML = `${response.data[0].translations[0].text}`
+
+        IndictorTranslateON.style.display = 'none'
+        IndictorTranslateOFF.style.display = 'flex'
       } catch (error) {
         console.error(error);
+        IndictorTranslateON.style.display = 'none'
+        IndictorTranslateOFF.style.display = 'flex'
       }
     }
 
