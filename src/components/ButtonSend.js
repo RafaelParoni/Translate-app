@@ -86,6 +86,7 @@ function ButtonSend(){
       }
     }
 
+
     return (
         <button className='TranslateBtn' onClick={()=> traduzir()}>
           <PiTranslate/>  Traduzir
