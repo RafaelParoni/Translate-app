@@ -33,36 +33,8 @@ import {LuAlertTriangle} from 'react-icons/lu'
         var Value = document.getElementById('translateLingResult').value
         navigator.clipboard.writeText(Value)
     }
-    async function DetectLing(){
-        var TextEnter = document.getElementById('translateLingResult')
-        const options = {
-            method: 'POST',
-            url: 'https://microsoft-translator-text.p.rapidapi.com/Detect',
-            params: {
-              'api-version': '3.0'
-            },
-            headers: {
-              'content-type': 'application/json',
-              'X-RapidAPI-Key': '4d1fc03470msh98ed2d469a33f37p102184jsn7cab8e913b66',
-              'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com'
-            },
-            data: [
-              {
-                Text: TextEnter.value
-              }
-            ]
-          };
-          
-          try {
-              const response = await axios.request(options);
-              VoiceLing =  response.data[0].language
-          } catch (error) {
-              console.error(error);
-          }
-    }
-    
-    async function SpeekText(){
-        await DetectLing()
+    function SpeekText(){
+        VoiceLing = document.getElementById('lings').value
         var text = document.getElementById('translateLingResult').value
         let paragraph = new SpeechSynthesisUtterance(text);
         paragraph.lang = VoiceLing

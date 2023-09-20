@@ -3,22 +3,18 @@ import {PiTranslate} from 'react-icons/pi'
 import axios from 'axios'
 
 function ButtonSend(){
-
+    var IndictorTranslateON = document.getElementById('TranslateLoadOn')
+    var IndictorTranslateOFF = document.getElementById('TranslateLoadOff')
+    var IndictorTranslateError = document.getElementById('TranslateLoadError')
+    var ErrorDiv = document.getElementById('ErrorDivAlert')
+    var TextEnter = document.getElementById('translateLingInput')
+    var TextResult = document.getElementById('translateLingResult')
+    var TranslateOnly = document.getElementById('TranslateLingOnly')
+    var DetecLing = document.getElementById('TranslateLingDetect')
+    var SelectLing = document.getElementById('lings')
+    
     async function traduzir(){
-      var IndictorTranslateON = document.getElementById('TranslateLoadOn')
-      var IndictorTranslateOFF = document.getElementById('TranslateLoadOff')
-      var IndictorTranslateError = document.getElementById('TranslateLoadError')
-      var ErrorDiv = document.getElementById('ErrorDivAlert')
-      var TextEnter = document.getElementById('translateLingInput')
-      var TextResult = document.getElementById('translateLingResult')
-      var TranslateOnly = document.getElementById('TranslateLingOnly')
-      var DetecLing = document.getElementById('TranslateLingDetect')
-      var SelectLing = document.getElementById('lings')
-      // ------------------------------------------------ // 
-      IndictorTranslateON.style.display = 'flex'
-      IndictorTranslateOFF.style.display = 'none'
-      IndictorTranslateError.style.display = 'none'
-      ErrorDiv.style.display = 'none'
+      style('start')
       const options = {
         method: 'POST',
         url: 'https://microsoft-translator-text.p.rapidapi.com/translate',
@@ -75,17 +71,31 @@ function ButtonSend(){
         TextResult.value = `${response.data[0].translations[0].text}`
         TextResult.innerHTML = `${response.data[0].translations[0].text}`
 
+        style('end')
+      } catch (error) {
+        console.error(error);
+        document.getElementById('ErrorSpanAlert').innerHTML =`Error: ${error}`
+        style('error')
+      }
+    }
+    function style(value){
+      if(value == 'start'){
+        IndictorTranslateON.style.display = 'flex'
+        IndictorTranslateOFF.style.display = 'none'
+        IndictorTranslateError.style.display = 'none'
+        ErrorDiv.style.display = 'none'
+      }else if(value == 'end'){
         IndictorTranslateON.style.display = 'none'
         IndictorTranslateOFF.style.display = 'flex'
         IndictorTranslateError.style.display = 'none'
         ErrorDiv.style.display = 'none'
-      } catch (error) {
-        console.error(error);
-        document.getElementById('ErrorSpanAlert').innerHTML =`Error: ${error}`
+      }else if(value == 'error'){
         IndictorTranslateON.style.display = 'none'
         IndictorTranslateOFF.style.display = 'none'
         IndictorTranslateError.style.display = 'flex'
         ErrorDiv.style.display = 'flex'
+      }else{
+        console.log(`Valor não indetificado, \n Value: ${value}`)
       }
     }
 
