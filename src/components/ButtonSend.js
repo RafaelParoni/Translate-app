@@ -39,34 +39,37 @@ function ButtonSend(){
           }
         ]
       };
+      function DetectLing(value){
+        if(value == 'pt'){
+          DetecLing.innerHTML = 'Português'
+        }else if(value == 'en'){
+          DetecLing.innerHTML = 'Ingles'
+        }else if(value == 'es'){
+          DetecLing.innerHTML = 'Espanhol'
+        }else if(value == 'fr'){
+          DetecLing.innerHTML = 'Frances'
+        }else if(value == 'ja'){
+          DetecLing.innerHTML = 'Japones'
+        }else if(value == 'pt-PT'){
+          DetecLing.innerHTML = 'Português (Portugal)'
+        }else if(value == 'ru'){
+          DetecLing.innerHTML = 'Russo'
+        }else if(value == 'zh-Hans'){
+          DetecLing.innerHTML = 'Chinês (Simplificado)'
+        }else if(value == 'zh-Hant'){
+          DetecLing.innerHTML = 'Chinês (Tradicional)'
+        }else if(value == 'uk'){
+          DetecLing.innerHTML = 'Ucraniano'
+        }else if(value == 'pl'){
+          DetecLing.innerHTML = 'Polonês'
+        }else{
+          DetecLing.innerHTML = value
+        }
+      }
 
       try {
         const response = await axios.request(options);
-        if(response.data[0].detectedLanguage.language == 'pt'){
-          DetecLing.innerHTML = 'Português'
-        }else if(response.data[0].detectedLanguage.language == 'en'){
-          DetecLing.innerHTML = 'Ingles'
-        }else if(response.data[0].detectedLanguage.language == 'es'){
-          DetecLing.innerHTML = 'Espanhol'
-        }else if(response.data[0].detectedLanguage.language == 'fr'){
-          DetecLing.innerHTML = 'Frances'
-        }else if(response.data[0].detectedLanguage.language == 'ja'){
-          DetecLing.innerHTML = 'Japones'
-        }else if(response.data[0].detectedLanguage.language == 'pt-PT'){
-          DetecLing.innerHTML = 'Português (Portugal)'
-        }else if(response.data[0].detectedLanguage.language == 'ru'){
-          DetecLing.innerHTML = 'Russo'
-        }else if(response.data[0].detectedLanguage.language == 'zh-Hans'){
-          DetecLing.innerHTML = 'Chinês (Simplificado)'
-        }else if(response.data[0].detectedLanguage.language == 'zh-Hant'){
-          DetecLing.innerHTML = 'Chinês (Tradicional)'
-        }else if(response.data[0].detectedLanguage.language == 'uk'){
-          DetecLing.innerHTML = 'Ucraniano'
-        }else if(response.data[0].detectedLanguage.language == 'pl'){
-          DetecLing.innerHTML = 'Polonês'
-        }else{
-          DetecLing.innerHTML = response.data[0].detectedLanguage.language
-        }
+        DetectLing(response.data[0].detectedLanguage.language)
         
         TextResult.style.height = TextEnter.style.height
         TextResult.value = `${response.data[0].translations[0].text}`
