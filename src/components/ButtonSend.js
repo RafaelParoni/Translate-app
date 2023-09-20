@@ -12,7 +12,7 @@ function ButtonSend(){
     var TranslateOnly = document.getElementById('TranslateLingOnly')
     var DetecLing = document.getElementById('TranslateLingDetect')
     var SelectLing = document.getElementById('lings')
-    
+
     async function traduzir(){
       style('start')
       const options = {
