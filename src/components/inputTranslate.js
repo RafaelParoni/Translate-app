@@ -1,7 +1,7 @@
 import './Components.css';
 import axios from 'axios'
 import { useEffect, useRef, useState } from 'react';
-import {PiArrowsLeftRightBold, PiArrowClockwiseBold, PiXBold, PiCopyBold, PiSpeakerHighBold } from 'react-icons/pi'
+import {PiEqualsBold, PiArrowClockwiseBold, PiXBold, PiCopyBold, PiSpeakerHighBold } from 'react-icons/pi'
 import {LuAlertTriangle} from 'react-icons/lu'
 
 
@@ -149,7 +149,7 @@ import {LuAlertTriangle} from 'react-icons/lu'
                 <a className='ExtraButton'><button onClick={()=> ResetTranslate()} style={{top: '7px'}}> <PiXBold color='fff'/> </button></a>
                 <a><textarea id='translateLingInput' autoCorrect='on' autoComplete='on' type='text' wrap="hard" className='p-1 bg-neutral-700 active:outline-none focus:outline-none rounded' value={val}  onChange={handleChange}  rows="2" ref={textAreaRef}/></a>
             </div>  
-            <a id='TranslateLoadOff'><PiArrowsLeftRightBold color='fff'/></a>
+            <a id='TranslateLoadOff'><PiEqualsBold color='fff'/></a>
             <a id='TranslateLoadOn'><PiArrowClockwiseBold color='fff'/></a>
             <a id='TranslateLoadError'><LuAlertTriangle/></a>
             <div className='inputTranslate select'>
