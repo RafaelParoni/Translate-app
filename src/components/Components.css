@@ -100,13 +100,13 @@ h1{
     box-shadow: 0 0 0 0;
     outline: 0;
 }
-.ResetButton{
+.ExtraButton{
     width: 100%;
     height: 0px;
     display: flex;
     justify-content: right;
 }
-.ResetButton button{
+.ExtraButton button{
     border: none;
     border-radius: 50%;
     background-color: transparent;
@@ -118,67 +118,16 @@ h1{
     height: 22px;
     cursor: pointer;
     position: relative;
-    top: 6px;
+    
     left: -3px;
     
 }
-.ResetButton button:hover{
+.ExtraButton button:hover{
     transition: 0.5s;
     transform: scale(1.2);
     background-color: rgba(255, 255, 255, 0.5);
 }
-.CopyButtom{
-    width: 100%;
-    height: 0px;
-    display: flex;
-    justify-content: right;
-}
-.CopyButtom button{
-    border: none;
-    border-radius: 50%;
-    background-color: transparent;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    height: 22px;
-    cursor: pointer;
-    position: relative;
-    top: 10px;
-    left: -3px;
-}
-.CopyButtom button:hover{
-    transition: 0.5s;
-    transform: scale(1.2);
-    background-color: rgba(255, 255, 255, 0.5);
-}
-.SpeekButton{
-    width: 100%;
-    height: 0px;
-    display: flex;
-    justify-content: right;
-}
-.SpeekButton button{
-    border: none;
-    border-radius: 50%;
-    background-color: transparent;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    height: 22px;
-    cursor: pointer;
-    position: relative;
-    top: 25px;
-    left: -3px;
-}
-.SpeekButton button:hover{
-    transition: 0.5s;
-    transform: scale(1.2);
-    background-color: rgba(255, 255, 255, 0.5);
-}
+
 #TranslateLoadOn {
     transition: 1s;
     animation-name: rotate;

@@ -1,9 +1,9 @@
 import './Components.css';
 import axios from 'axios'
 import { useEffect, useRef, useState } from 'react';
-import {PiArrowsLeftRightBold, PiArrowClockwiseBold, PiCopyBold, PiMicrophoneBold } from 'react-icons/pi'
+import {PiArrowsLeftRightBold, PiArrowClockwiseBold, PiXBold, PiCopyBold, PiSpeakerHighBold } from 'react-icons/pi'
 import {LuAlertTriangle} from 'react-icons/lu'
-import {GrClose} from 'react-icons/gr'
+
 
  function Title(){
 
@@ -12,6 +12,7 @@ import {GrClose} from 'react-icons/gr'
     const handleChange = (e) => {
         setVal(e.target.value);
     }
+    var VoiceLing = 'pt-br'
     
     
     useEffect(() => {
@@ -32,17 +33,47 @@ import {GrClose} from 'react-icons/gr'
         var Value = document.getElementById('translateLingResult').value
         navigator.clipboard.writeText(Value)
     }
-    function SpeekText(){
+    async function DetectLing(){
+        var TextEnter = document.getElementById('translateLingResult')
+        const options = {
+            method: 'POST',
+            url: 'https://microsoft-translator-text.p.rapidapi.com/Detect',
+            params: {
+              'api-version': '3.0'
+            },
+            headers: {
+              'content-type': 'application/json',
+              'X-RapidAPI-Key': '4d1fc03470msh98ed2d469a33f37p102184jsn7cab8e913b66',
+              'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com'
+            },
+            data: [
+              {
+                Text: TextEnter.value
+              }
+            ]
+          };
+          
+          try {
+              const response = await axios.request(options);
+              VoiceLing =  response.data[0].language
+          } catch (error) {
+              console.error(error);
+          }
+    }
+    
+    async function SpeekText(){
+        await DetectLing()
         var text = document.getElementById('translateLingResult').value
         let paragraph = new SpeechSynthesisUtterance(text);
+        paragraph.lang = VoiceLing
         speechSynthesis.speak(paragraph)
-      }
+    }
   
     return (
         <div className='InputsDiv'>
             <div className='inputTranslate'>
                 <div className='InputLing'><spam id='TranslateLingDetect'>Auto detector</spam></div>
-                <a className='ResetButton'><button onClick={()=> ResetTranslate()}> <GrClose color='fff'/> </button></a>
+                <a className='ExtraButton'><button onClick={()=> ResetTranslate()} style={{top: '7px'}}> <PiXBold color='fff'/> </button></a>
                 <a><textarea id='translateLingInput' autoCorrect='on' autoComplete='on' type='text' wrap="hard" className='p-1 bg-neutral-700 active:outline-none focus:outline-none rounded' value={val}  onChange={handleChange} rows="2" ref={textAreaRef}/></a>
             </div>  
             <a id='TranslateLoadOff'><PiArrowsLeftRightBold color='fff'/></a>
@@ -65,8 +96,8 @@ import {GrClose} from 'react-icons/gr'
                         <option value={`pl`}>Polonês</option>
                     </select>
                 </form>
-                <a className='CopyButtom'><button onClick={()=> CopyTranslate()}> <PiCopyBold color='fff'/> </button></a>
-                <a className='SpeekButton'><button onClick={()=> SpeekText()}> <PiMicrophoneBold color='fff'/> </button></a>
+                <a className='ExtraButton' ><button onClick={()=> CopyTranslate()} style={{top: '12px'}}> <PiCopyBold color='fff'/> </button></a>
+                <a className='ExtraButton' ><button onClick={()=> SpeekText()} style={{top: '30px'}}> <PiSpeakerHighBold color='fff'/> </button></a>
                 <a><textarea id='translateLingResult' readOnly type='text' wrap="hard"   rows="2" /></a>
             </div>     
         </div>
