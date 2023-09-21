@@ -146,7 +146,7 @@ import {LuAlertTriangle} from 'react-icons/lu'
             <div className='inputTranslate'>
                 <div className='InputLing'><spam id='TranslateLingDetect'>Auto detector</spam></div>
                 <a className='ExtraButton'><button onClick={()=> ResetTranslate()} style={{top: '4px'}}> <PiXBold color='fff'/> </button></a>
-                <a><textarea id='translateLingInput'  style={{height: '65px'}} autoCorrect='on' autoComplete='on' type='text' wrap="hard" className='p-1 bg-neutral-700 active:outline-none focus:outline-none rounded' value={val}  onChange={handleChange}  rows="2" ref={textAreaRef}/></a>
+                <a><textarea placeholder='Dgite seu Texto:' id='translateLingInput'  style={{height: '65px'}} autoCorrect='on' autoComplete='on' type='text' wrap="hard" className='p-1 bg-neutral-700 active:outline-none focus:outline-none rounded' value={val}  onChange={handleChange}  rows="2" ref={textAreaRef}/></a>
             </div>  
             <a id='TranslateLoadOff'><PiEqualsBold color='fff'/></a>
             <a id='TranslateLoadOn'><PiArrowClockwiseBold color='fff'/></a>
@@ -171,7 +171,7 @@ import {LuAlertTriangle} from 'react-icons/lu'
                 <a className='ExtraButton' ><button onClick={()=> CopyTranslate()} style={{top: '4px'}}> <PiCopyBold color='fff'/> </button></a>
                 <a className='ExtraButton' ><button onClick={()=> SpeekText()} style={{top: '25px'}}> <PiSpeakerHighBold color='fff'/> </button></a>
                 <a className='ExtraButton rotate' ><button onClick={()=> ResetTranslate()} style={{top: '45px'}}> <PiArrowsCounterClockwiseBold color='fff'/> </button></a>
-                <a><textarea id='translateLingResult' style={{height: '65px'}}  readOnly type='text' wrap="hard"   rows="2" /></a>
+                <a><textarea placeholder='Tradução' id='translateLingResult' style={{height: '65px'}}  readOnly type='text' wrap="hard"   rows="2" /></a>
             </div>   
         </div>
     );

@@ -39,7 +39,7 @@ h1{
     justify-content: center;
     align-items: center;
     height: auto;
-    width: min(90%, 300px);
+    width: 300px
 }
 .inputTranslate form{
     width: 100%;
@@ -49,7 +49,8 @@ h1{
     width: 100%;
     text-align: center;
     display: flex;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #022946;
+    color: #fff;
     border-radius: 5px;
     font-size: 15px;
     border: none;
@@ -64,7 +65,8 @@ h1{
     font-family: cursive;
 }
 .InputLing {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #022946;
+    color: #fff;
     width: 100%;
     font-size: 15px;
     border-radius: 5px;
@@ -98,6 +100,9 @@ h1{
     border: none;
     color: #fff;
     background-color: transparent;
+}
+.inputTranslate a textarea::placeholder{
+    color: #a19e9e;
 }
 .inputTranslate a textarea:focus{
     box-shadow: 0 0 0 0;
@@ -134,8 +139,6 @@ h1{
     transition: 1s;
     transform: rotate(-360deg);
 }
-
-
 #TranslateLoadOn {
     transition: 1s;
     animation-name: rotate;
@@ -196,6 +199,17 @@ h1{
     .InputsDiv{
         flex-direction: column;
         align-items: center;
-        
     }
+    .inputTranslate {
+        width: 96%;
+    }
+    .ExtraButton button {
+        height: 25px;
+        width: 25px;
+        font-size: 25px;
+    }
+    .TranslateBtn {
+        font-size: 25px;
+    }
+ 
  }
