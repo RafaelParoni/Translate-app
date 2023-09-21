@@ -1,7 +1,7 @@
 import './Components.css';
 import axios from 'axios'
 import { useEffect, useRef, useState } from 'react';
-import {PiEqualsBold, PiArrowClockwiseBold, PiXBold, PiCopyBold, PiSpeakerHighBold } from 'react-icons/pi'
+import {PiEqualsBold, PiArrowClockwiseBold, PiXBold, PiCopyBold, PiSpeakerHighBold, PiArrowsCounterClockwiseBold } from 'react-icons/pi'
 import {LuAlertTriangle} from 'react-icons/lu'
 
 
@@ -20,22 +20,21 @@ import {LuAlertTriangle} from 'react-icons/lu'
     var ErrorDiv = document.getElementById('ErrorDivAlert')
     var TextEnter = document.getElementById('translateLingInput')
     var TextResult = document.getElementById('translateLingResult')
-    var TranslateOnly = document.getElementById('TranslateLingOnly')
     var DetecLing = document.getElementById('TranslateLingDetect')
     var SelectLing = document.getElementById('lings')
     
     useEffect(() => {
-        textAreaRef.current.style.height = "auto";
+        textAreaRef.current.style.height = "55px";
         textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
     }, [val])
 
 
     function ResetTranslate(){
         document.getElementById('translateLingInput').value = ''
-        document.getElementById('translateLingInput').style.height = 'auto'
+        document.getElementById('translateLingInput').style.height = '65px'
         document.getElementById('translateLingInput').innerHTML = ''
         document.getElementById('translateLingResult').value = ''
-        document.getElementById('translateLingResult').style.height = 'auto'
+        document.getElementById('translateLingResult').style.height = '65px'
         document.getElementById('translateLingResult').innerHTML = ''
     }
     function CopyTranslate(){
@@ -146,8 +145,8 @@ import {LuAlertTriangle} from 'react-icons/lu'
         <div className='InputsDiv'>
             <div className='inputTranslate'>
                 <div className='InputLing'><spam id='TranslateLingDetect'>Auto detector</spam></div>
-                <a className='ExtraButton'><button onClick={()=> ResetTranslate()} style={{top: '7px'}}> <PiXBold color='fff'/> </button></a>
-                <a><textarea id='translateLingInput' autoCorrect='on' autoComplete='on' type='text' wrap="hard" className='p-1 bg-neutral-700 active:outline-none focus:outline-none rounded' value={val}  onChange={handleChange}  rows="2" ref={textAreaRef}/></a>
+                <a className='ExtraButton'><button onClick={()=> ResetTranslate()} style={{top: '4px'}}> <PiXBold color='fff'/> </button></a>
+                <a><textarea id='translateLingInput'  style={{height: '65px'}} autoCorrect='on' autoComplete='on' type='text' wrap="hard" className='p-1 bg-neutral-700 active:outline-none focus:outline-none rounded' value={val}  onChange={handleChange}  rows="2" ref={textAreaRef}/></a>
             </div>  
             <a id='TranslateLoadOff'><PiEqualsBold color='fff'/></a>
             <a id='TranslateLoadOn'><PiArrowClockwiseBold color='fff'/></a>
@@ -169,9 +168,10 @@ import {LuAlertTriangle} from 'react-icons/lu'
                         <option value={`pl`}>Polonês</option>
                     </select>
                 </form>
-                <a className='ExtraButton' ><button onClick={()=> CopyTranslate()} style={{top: '12px'}}> <PiCopyBold color='fff'/> </button></a>
-                <a className='ExtraButton' ><button onClick={()=> SpeekText()} style={{top: '30px'}}> <PiSpeakerHighBold color='fff'/> </button></a>
-                <a><textarea id='translateLingResult' readOnly type='text' wrap="hard"   rows="2" /></a>
+                <a className='ExtraButton' ><button onClick={()=> CopyTranslate()} style={{top: '4px'}}> <PiCopyBold color='fff'/> </button></a>
+                <a className='ExtraButton' ><button onClick={()=> SpeekText()} style={{top: '25px'}}> <PiSpeakerHighBold color='fff'/> </button></a>
+                <a className='ExtraButton rotate' ><button onClick={()=> ResetTranslate()} style={{top: '45px'}}> <PiArrowsCounterClockwiseBold color='fff'/> </button></a>
+                <a><textarea id='translateLingResult' style={{height: '65px'}}  readOnly type='text' wrap="hard"   rows="2" /></a>
             </div>   
         </div>
     );
