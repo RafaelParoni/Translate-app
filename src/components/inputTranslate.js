@@ -170,7 +170,7 @@ import {LuAlertTriangle} from 'react-icons/lu'
                 </form>
                 <a className='ExtraButton' ><button onClick={()=> CopyTranslate()} style={{top: '4px'}}> <PiCopyBold color='fff'/> </button></a>
                 <a className='ExtraButton' ><button onClick={()=> SpeekText()} style={{top: '25px'}}> <PiSpeakerHighBold color='fff'/> </button></a>
-                <a className='ExtraButton rotate' ><button onClick={()=> ResetTranslate()} style={{top: '45px'}}> <PiArrowsCounterClockwiseBold color='fff'/> </button></a>
+                <a className='ExtraButton rotate' ><button onClick={()=> traduzir()} style={{top: '45px'}}> <PiArrowsCounterClockwiseBold color='fff'/> </button></a>
                 <a><textarea placeholder='Tradução' id='translateLingResult' style={{height: '65px'}}  readOnly type='text' wrap="hard"   rows="2" /></a>
             </div>   
         </div>
